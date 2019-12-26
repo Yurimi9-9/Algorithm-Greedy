@@ -17,9 +17,7 @@ int main()
 	long long remain = K;
 	for(int i=N-1; i>=0 && remain!=0; i--)
 	{
-		if(remain < coin[i])	// 목표 가치(K)까지 남은 값이 coin[i]보다 작으면
-			continue;			// 그 동전은 사용하지 못한다
-		else
+		if(remain >= coin[i])	// 목표 가치(K)까지 남은 값이 coin[i]보다 크거나 같을 때만 해당 동전 사용 가능.
 		{
 			num += remain / coin[i];	// 사용할 수 있는 coin[i]의 최대 개수를 사용한 동전 수에 더한다.
 			remain = remain % coin[i];	// coin[i]를 최대한 사용하고 남는 금액
