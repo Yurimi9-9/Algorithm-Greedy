@@ -1,0 +1,35 @@
+// 백준 2875 - 대회 or 인턴
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int N=0, M=0, K=0;
+	cin >> N >> M >> K;
+
+	// 인턴십 참여인원(K)을 다 뺄 때까지 반복 진행
+	while(K!=0)
+	{
+		if(N > M*2)
+		{	// 최대한 많은 팀을 꾸린 후 여학생(N)이 남는 경우
+			N--;
+			K--;
+		}
+		else
+		{	// 남학생(M)이 남는 경우
+			M--;
+			K--;
+		}
+	}
+
+	// 첫 번째 while에서 걸러주지 못하는 case(K==0)를 걸러준다.
+	while(N < M*2)
+	{
+		M--;
+	}
+
+	cout << M;
+
+	return 0;
+}
